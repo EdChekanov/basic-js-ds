@@ -10,7 +10,6 @@ module.exports = class BinarySearchTree {
   constructor() {
     this.basis = null;
   }
-
   root() {
    return this.basis;
   }
@@ -134,5 +133,8 @@ module.exports = class BinarySearchTree {
 
     return node.data;
   }
-
 }
+
+module.exports = {
+  BinarySearchTree
+};

@@ -39,3 +39,7 @@ module.exports = class Queue {
     return el;
   }
 }
+
+module.exports = {
+  Queue
+};
