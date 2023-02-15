@@ -10,7 +10,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  * @param {Number} k
  * @return {List}
  *
- * @example
+ * @example.0
  * For l = [3, 1, 2, 3, 4, 5] and k = 3,
  * the output should be [1, 2, 4, 5]
  *
@@ -23,18 +23,24 @@ const { NotImplementedError } = require('../extensions/index.js');
  * }
  */
 
-module.exports = function removeKFromList(l, k) {
+function removeKFromList(l, k) {
   let linkedList = l;
   while (linkedList) {
     if (linkedList.value === k) {
       linkedList.value = linkedList.next.value;
       linkedList.next = linkedList.next.next;
     } else {
+      if (linkedList.next) {
+        if (!linkedList.next.next && linkedList.next.value === k) {
+          linkedList.next = null;
+          return l;
+        }
+      }
       linkedList = linkedList.next;
     }
   }
   return l;
-};
+}
 
 module.exports = {
   removeKFromList,
